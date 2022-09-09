@@ -1,0 +1,91 @@
+<div class="card align-items-center justify-content-center">
+    <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6">
+        <h1 class="text-center text-900">{{title | uppercase}}</h1>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" autocomplete="off">
+
+
+            <div class="md:col-12">
+                <span>
+                    <label class="block text-900 font-medium mb-2">UserName</label>
+                    <span class="p-input-icon-left">
+                        <i class="pi pi-user"></i>
+                        <input id="name" type="text" pInputText class=" form-control  w-full" formControlName="userName" autocomplete="false"
+                            [ngClass]="{'is-invalid': submitted && f['userName'].invalid && f['userName'].errors || f['userName'].touched && f['userName'].invalid}"/></span>
+                    <div class="div1" *ngIf="(f['userName'].touched || submitted) && f['userName'].errors?.['required']"
+                        style="color: red;">User Name is required*</div>
+                </span>
+
+
+                <span>
+                    <label class="block text-900 font-medium mb-2">Email</label>
+                    <span class="p-input-icon-left">
+                        <i class="pi pi-envelope"></i>
+                    <input id="email" type="email" pInputText class=" form-control  w-full" formControlName="email"
+                        [ngClass]="{'is-invalid': submitted && f['email'].invalid && f['email'].errors || f['email'].touched && f['email'].invalid}"/></span>
+                    <div class="div1"
+                        *ngIf="(f['email'].touched || submitted) && f['email'].errors?.['required'] || f['email'].errors?.['email']"
+                        style="color: red;">Email is required</div>
+                </span>
+            </div>
+
+            <div class="md:col-6">
+                <label class="block text-900 font-medium mb-2">Mobile</label>
+                <span class="p-input-icon-left">
+                    <i class="pi pi-mobile"></i>
+                <input id="mob" type="number" pInputText class=" form-control w-full" formControlName="mobile"
+                    [ngClass]="{'is-invalid': submitted && f['mobile'].invalid && f['mobile'].errors || f['mobile'].touched && f['mobile'].invalid}"/></span>
+                <div class="div1" *ngIf="(f['mobile'].touched || submitted) && f['mobile'].errors?.['required']"
+                    style="color: red;">Mobile no. is required</div>
+            </div>
+
+            <div class="md:col-6">
+                <label class="block text-900 font-medium mb-2">Password</label>
+                <span class="p-input-icon-left">
+                    <i class="pi pi-key"></i>
+                <input id="pwd" type="password" pInputText class=" form-control w-full" formControlName="password"
+                    [ngClass]="{'is-invalid': submitted && f['password'].invalid && f['password'].errors || f['password'].touched && f['password'].invalid}"/></span>
+                <div class="div1" *ngIf="(f['password'].touched || submitted) && f['password'].errors?.['required']"
+                    style="color: red;">Password is required</div>
+            </div>
+
+            <div class="md:col-6">
+                <label class="block text-900 font-medium mb-2">Confirm Password</label>
+                <span class="p-input-icon-left">
+                    <i class="pi pi-key"></i>
+                <input id="pwd2" type="password" pInputText class=" form-control  w-full" formControlName="confirmpwd"
+                    [ngClass]="{'is-invalid': submitted && f['confirmpwd'].invalid && f['confirmpwd'].errors || f['confirmpwd'].touched && f['confirmpwd'].invalid}"/></span>
+                <div class="div1" *ngIf="(f['confirmpwd'].touched || submitted) && f['confirmpwd'].errors?.['required']"
+                    style="color: red;">Confirm password is required</div>
+            </div>
+
+            <div class="md:col-6">
+                <label class="block text-900 font-medium mb-2">Profile picture</label>
+                <span class="p-input-icon-left">
+                    <i class="pi pi-image"></i>
+                <input id="img" type="file" pInputText class=" form-control  w-full" formControlName="photoURL"
+                    [ngClass]="{'is-invalid': submitted && f['photoURL'].invalid && f['photoURL'].errors || f['photoURL'].touched && f['photoURL'].invalid}"/></span>
+                <div class="div1" *ngIf="(f['photoURL'].touched || submitted) && f['photoURL'].errors?.['required']"
+                    style="color: red;">Profile picture is required</div>
+            </div>
+
+            <div class="md:col-6">
+                <button pButton pRipple type="reset" label="Cancel" icon="pi pi-times"
+                    class="p-button-rounded p-button-danger p-button-sm" (click)="reset()"></button>
+                <button pButton pRipple type="submit" label="Submit" icon="pi pi-user"
+                    class="p-button-rounded p-button-success p-button-sm"></button>
+            </div>
+
+            <div class="md:col-6 mb-3">
+                <button pButton pRipple label="Continue with Google" icon="pi pi-google"
+                    class="p-button-rounded p-button-primary p-button-sm" (click)="auth.GoogleAuth()"></button>
+            </div>
+
+            <div class="md:col-6">
+                <span>Already have an account?
+                    <span class="redirect" routerLink="/sign-in">Log In</span></span>
+            </div>
+
+
+        </form>
+    </div>
+</div>
