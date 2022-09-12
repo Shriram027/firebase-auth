@@ -9,10 +9,7 @@ import { AuthService } from '../../services/auth.service';
 export class SignInComponent implements OnInit {
   title: string = "Login";
 
-  // form = {
-  //   email: '',
-  //   password: ''
-  // }
+
 
   email:string;
   password:string;

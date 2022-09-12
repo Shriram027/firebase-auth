@@ -1,22 +1,16 @@
-<div class="displayTable">
-    <div class="displayTableCell">
-      <div class="authBlock">
-        <h3>Thank You for Registering</h3>
-        <div class="formGroup" *ngIf="auth.data as user">
-          <p class="text-center">We have sent a confirmation email to <strong>{{user.email}}</strong>.</p>
-          <p class="text-center">Please check your email and click on the link to verfiy your email address.</p>
-        </div>
-        
-        <!-- Calling SendVerificationMail() method using authService Api -->
-        <div class="formGroup">
-          <button type="button" class="btn btnPrimary" (click)="auth.sendVerificationMail()">
-            <i class="fas fa-redo-alt"></i>
-            Resend Verification Email
-          </button>
-        </div>
+<div class="card p-8">
+  <div class="surface-card p-8">
+    <div class="text-900 text-center font-medium  mb-4">
+      <h3>Thank You for Registering</h3>
+      <div class="formGroup" *ngIf="auth.data as user">
+        <p class="text-center">We have sent a confirmation email to <strong>{{user.email}}</strong>.</p>
+        <p class="text-center">Please check your email and click on the link to verfiy your email address.</p>
       </div>
-      <div class="redirectToLogin">
-        <span>Go back to?<span class="redirect" routerLink="/sign-in"> Sign in</span></span>
-      </div>
+      <button pButton pRipple type="button" label="Resend Verification Email" icon="pi pi-refresh"
+        class="p-button-rounded p-button-primary p-button-sm mr-2" (click)="auth.sendVerificationMail()"></button>
+    </div>
+    <div class="mb-4 text-center">
+      <span>Go back to?<span class="redirect font-medium text-900" routerLink="/sign-in"> Sign in</span></span>
     </div>
   </div>
+</div>

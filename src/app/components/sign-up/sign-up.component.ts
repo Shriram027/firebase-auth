@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, AbstractControl, Validators } from '@angular/forms';
+import Validation from 'src/app/validation';
 import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-sign-up',
@@ -8,6 +9,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class SignUpComponent implements OnInit {
   title: string = "Signup";
+  // showPassword = false;
   data: any;
 
   loginForm: FormGroup = new FormGroup({
@@ -25,12 +27,15 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      userName: ['', Validators.required],
-      email: ['', Validators.required],
-      mobile: ['', Validators.required],
-      password: ['', Validators.required],
+      userName: ['', Validators.required, Validators.pattern("[a-zA-Z ]*")],
+      email: ['', [Validators.required, Validators.email]],
+      mobile: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$"), Validators.maxLength(10)]],
+      password: ['', Validators.required,Validators.pattern("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,}$/")],
       confirmpwd: ['', Validators.required],
       photoURL: ['', Validators.required]
+    },
+    {
+      validators: [Validation.match('password', 'confirmpwd')]
     })
   }
 
@@ -52,5 +57,18 @@ export class SignUpComponent implements OnInit {
     this.submitted = false;
     this.loginForm.reset();
   }
+
+
+  // toggleShowPassword() {
+  //   this.showPassword = !this.showPassword;
+  //   console.log("this.showPassword" , this.showPassword)
+  // }
+
+  // get password() {
+  //   return this.loginForm.controls['password'];
+  // }
+  // get confirmPassword() {
+  //   return this.loginForm.controls['confirmPassword'];
+  // }
 
 }
