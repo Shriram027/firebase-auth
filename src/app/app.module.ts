@@ -5,12 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PrimeNGModule } from './prime-ng/prime-ng.module';
 import { AuthService } from './services/auth.service';
-import { environment } from '../environments/environment';
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import{FirebaseModule} from './firebase/firebase.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
@@ -42,11 +37,7 @@ import {  NgxPaginationModule} from 'ngx-pagination';
     AppRoutingModule,
     BrowserAnimationsModule,
     PrimeNGModule,
-     AngularFireModule.initializeApp(environment.firebaseConfig),
-     AngularFireAuthModule,
-     AngularFireStorageModule,
-     AngularFirestoreModule,
-     AngularFireDatabaseModule,
+    FirebaseModule,
      FormsModule,
      ReactiveFormsModule,
      NgxPaginationModule,
