@@ -12,25 +12,26 @@ export class SignUpComponent implements OnInit {
   // showPassword = false;
   data: any;
 
-  loginForm: FormGroup = new FormGroup({
-    userName: new FormControl(''),
-    email: new FormControl(''),
-    mobile: new FormControl(''),
-    password: new FormControl(''),
-    confirmpwd: new FormControl(''),
-    photoURL: new FormControl('')
-  });
+  // loginForm: FormGroup = new FormGroup({
+  //   userName: new FormControl(''),
+  //   email: new FormControl(''),
+  //   mobile: new FormControl(''),
+  //   password: new FormControl(''),
+  //   confirmpwd: new FormControl(''),
+  //   photoURL: new FormControl('')
+  // });
 
+  loginForm: FormGroup
   submitted: boolean = false;
 
   constructor(public auth: AuthService, public fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      userName: ['', Validators.required, Validators.pattern("[a-zA-Z ]*")],
+      userName: ['',[Validators.required, Validators.pattern("[a-zA-Z ]*")]],
       email: ['', [Validators.required, Validators.email]],
       mobile: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$"), Validators.maxLength(10)]],
-      password: ['', Validators.required,Validators.pattern("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,}$/")],
+      password: ['', [Validators.required,Validators.minLength(6),Validators.maxLength(10)]],
       confirmpwd: ['', Validators.required],
       photoURL: ['', Validators.required]
     },

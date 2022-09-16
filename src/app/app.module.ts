@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PrimeNGModule } from './prime-ng/prime-ng.module';
@@ -18,7 +18,11 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { AddStudentComponent } from './components/add-student/add-student.component';
+import { EditStudentComponent } from './components/edit-student/edit-student.component';
+import { StudentListComponent } from './components/student-list/student-list.component';
+import {ToastrModule}  from 'ngx-toastr';
+import {  NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -28,11 +32,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SignUpComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    AddStudentComponent,
+    EditStudentComponent,
+    StudentListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     PrimeNGModule,
      AngularFireModule.initializeApp(environment.firebaseConfig),
      AngularFireAuthModule,
@@ -40,10 +48,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
      AngularFirestoreModule,
      AngularFireDatabaseModule,
      FormsModule,
-     ReactiveFormsModule 
+     ReactiveFormsModule,
+     NgxPaginationModule,
+     ToastrModule.forRoot() 
 
   ],
   providers: [AuthService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

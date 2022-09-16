@@ -2,6 +2,6 @@
 /* .form-control.ng-touched .ng-invalid{
     border: red 1px solid;
 } */
-.form-control.ng-touched .ng-invalid{
+.form-control.ng-touched  {
     border: red 1px solid;
 }
