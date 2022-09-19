@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class StudentListComponent implements OnInit {
   p: number = 1;
   students: Student[];
+  selectedStudents: Student[];
   hideWhenNoStudent: boolean = false;
   noData: boolean = false;
   preLoader: boolean = true;  
@@ -49,6 +50,7 @@ export class StudentListComponent implements OnInit {
   deleteStudent(student) {
     if (window.confirm('Are you want to delete this student ?')) { 
       this.crudApi.deleteStudent(student.$key)
+      console.log(student.$key);
       this.toastr.success(student.firstName + ' successfully deleted!');
     }
   }

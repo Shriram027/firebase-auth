@@ -1,66 +1,16 @@
-<!-- Top navigation -->
-<!-- <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/register-student">
-      <span class="dasboard-text">Dashboard</span>
-    </a>
-    <ul class="navbar-nav px-3">
-      <li class="nav-item text-nowrap">
-        <a class="nav-link" routerLink="/register-student">
-          <span class="user-image" style="background-image: url('../assets/images/4897897.ai')"></span>
-          Hello Admin
-        </a>
-      </li>
-    </ul>
-  </nav>
-  
-  <div class="container-fluid">
-    <div class="row">
-      <nav class="col-md-2 d-md-block bg-light sidebar">
-        <div class="sidebar-sticky">
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/register-student" routerLinkActive="active">
-                Add Student
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/view-students" routerLinkActive="active">
-                Students List
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      
-      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-        <div class="inner-adjust">
-          <router-outlet></router-outlet>
-        </div>
-      </main>
-    </div>
-  </div>
-<router-outlet></router-outlet> -->
-<!-- *ngIf="auth.isLoggedIn && auth.data as user"; else elseBlock; -->
-
 <div>
   <p-menubar>
-    <ng-template pTemplate="start">
-      <p-button label="Home" routerLink="/"></p-button>
-    <p-dropdown class="ml-4" [options]="students" [(ngModel)]="selected"  placeholder="Student" [showClear]="true" optionLabel="name" (click)="addstudent()">
-      <span *ngIf=""></span>
-      
-    </p-dropdown>
-    <p-dropdown class="ml-4" [options]="users" placeholder="User" [showClear]="true" optionLabel="name">
-      
-    </p-dropdown>
-    </ng-template>
     <ng-template pTemplate="end">
-      <p-image *ngIf="auth.isLoggedIn || auth.data as user; else elseBlock;" src="{{(user.photoURL) ? user.photoURL : '../../../assets/images/dummy2.png'}}" height="40px" width="40px"  [preview]="true"></p-image>
+      <p-button  *ngIf="auth.isLoggedIn" class="mr-4" label="Add Student" routerLink="register-student"></p-button>
+      <p-button  *ngIf="auth.isLoggedIn" class="mr-4" label="Student list" routerLink="view-students"></p-button>
+      <p-button  *ngIf="!auth.isLoggedIn" class="mr-4" label="SignUp" routerLink="register"></p-button>
+      <p-button  *ngIf="!auth.isLoggedIn" class="mr-4" label="SignIn" routerLink="sign-in"></p-button>
+      <p-button  *ngIf="auth.isLoggedIn" class="mr-4" label="SignOut" (click)="auth.signOut()" routerLink="sign-in"></p-button>
+      <p-image  *ngIf="auth.isLoggedIn || auth.data as user; else elseBlock;" src="{{(user.photoURL) ? user.photoURL : '../../../assets/images/dummy2.png'}}" height="40px" width="40px"  [preview]="true"></p-image>
       <ng-template #elseBlock>
-      <p-image  src="../assets/images/guest.png" alt="guestmode" height="40px" width="40px" [preview]="true"></p-image>
+      <p-image  src="../assets/images/guest.png" alt="guestmode"  class="rounded" height="40px" width="40px" [preview]="true"></p-image>
     </ng-template>
     </ng-template>
-
   </p-menubar>
 </div>
 <div>

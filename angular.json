@@ -31,7 +31,7 @@
                             "node_modules/ngx-toastr/toastr.css"
                         ],
                         "scripts": [
-                            "../firebase-auth/src/assets/custom.js"
+                            "src/assets/custom.js"
                         ]
                     },
                     "configurations": {

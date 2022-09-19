@@ -17,7 +17,7 @@ export class AppComponent {
 
   students = [
     { name: 'Add-student' },
-    { name: 'View-student' },
+    { name: 'Student-list'},
   ];
 
   users = [
@@ -25,8 +25,7 @@ export class AppComponent {
     {name:'SignUp'},
     {name:'SignOut'}
   ]
-  addstudent(){
-    let sd:any = this.students[0]
-    console.log(sd)
+  onSelected(teams){
+   
   }
 }

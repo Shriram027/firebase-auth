@@ -34,8 +34,8 @@ export class EditStudentComponent implements OnInit {
     return this.editForm.get('firstName');
   }
 
-  get lastName() {
-    return this.editForm.get('lastName');
+  get standard() {
+    return this.editForm.get('standard');
   }
 
   get email() {
@@ -48,8 +48,8 @@ export class EditStudentComponent implements OnInit {
 
   updateStudentData() {
     this.editForm = this.fb.group({
-      firstName: ['', [Validators.required, Validators.minLength(2)]],
-      lastName: [''],
+      firstName: ['', [Validators.required, Validators.minLength(3)]],
+      standard: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),]],
       mobileNumber: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
     });
