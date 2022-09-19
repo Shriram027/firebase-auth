@@ -21,8 +21,8 @@ export class AddStudentComponent implements OnInit {
 
   studenForm() {
     this.studentForm = this.fb.group({
-      firstName: ['', [Validators.required, Validators.minLength(2)]],
-      lastName: [''],
+      firstName: ['', [Validators.required, Validators.minLength(3)]],
+      standard: ['',[Validators.required]],
       email: ['',[Validators.required,Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),]],
       mobileNumber: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
     });
@@ -33,8 +33,8 @@ export class AddStudentComponent implements OnInit {
     return this.studentForm.get('firstName');
   }
 
-  get lastName() {
-    return this.studentForm.get('lastName');
+  get standard() {
+    return this.studentForm.get('standard');
   }
 
   get email() {
