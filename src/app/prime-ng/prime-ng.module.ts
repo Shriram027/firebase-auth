@@ -10,7 +10,7 @@ import {DropdownModule} from 'primeng/dropdown';
 import {TableModule} from 'primeng/table';
 import {ToastModule} from 'primeng/toast';
 import {MenubarModule} from 'primeng/menubar';
-import {MenuItem} from 'primeng/api';
+import { ChipModule } from 'primeng/chip';
 import {ImageModule} from 'primeng/image';
 
 
@@ -25,7 +25,8 @@ const prime = [
   TableModule,
   ToastModule,
   MenubarModule,
-  ImageModule
+  ImageModule,
+  ChipModule
 ];
 
 @NgModule({
