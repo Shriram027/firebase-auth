@@ -1,68 +1,15 @@
-<!-- <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h2 class="h2">Students List</h2>
-    <a routerLink="/register-student" class="btn btn-success" *ngIf="hideWhenNoStudent">
-    Add Student
-  </a>
-</div>
-<div class="pricing-header mx-auto">
-    <div class="no-data text-center" *ngIf="preLoader">
-        <img src="assets/preloader.gif" class="preloader-icon" alt="No student" />
-    </div>
-    <div class="no-data text-center" *ngIf="noData">
-        <img src="assets/no-student.svg" class="nodata-msg" alt="No student" />
-        <p class="nodata-msg">No student added yet!</p>
-        <a routerLink="/register-student" class="btn btn-success"> Add Student </a>
-    </div>
-    <div class="table-responsive" *ngIf="hideWhenNoStudent">
-        <table class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg">
-            <thead>
-                <tr>
-                    <th scope="col">Student Id</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Standard</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Mobile number</th>
-                    <th class="text-center" scope="col">Edit</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="
-            let student of students
-              | paginate: { itemsPerPage: 8, currentPage: p };
-            let i = index
-          ">
-                    <th scope="row">{{ student.$key }}</th>
-                    <td>{{ student.firstName }}</td>
-                    <td>{{student.standard}}</td>
-                    <td>{{ student.email }}</td>
-                    <td>{{ student.mobileNumber }}</td>
-                    <td class="text-center action-block">
-                        <span class="mr-2 btn btn-outline-primary btn-sm" routerLink="/edit-student/{{ student.$key }}">Edit</span
-            >
-            <span
-              class="btn btn-outline-danger btn-sm"
-              (click)="deleteStudent(student)"
-              >Delete</span
-            >
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
-</div> -->
-
-<!-- <div class="card"> -->
-<p-table #dt [value]="students" [rows]="10" [paginator]="true"
-    [globalFilterFields]="['Name','Standard','Email','Mobile no.']" [(selection)]="selectedStudents" [rowHover]="false"
+<p-table #dt [value]="students" [rows]="5" [paginator]="true" 
+    [globalFilterFields]="['Name','Standard','Email','Mobile no.']" [(selection)]="selectedStudents" 
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
     <ng-template pTemplate="caption">
-        <div class="p-d-flex p-ai-center p-jc-between">
+        <div class="p-d-flex p-ai-center p-jc-between" style="text-align: right">
             <div class="text-900 text-3xl font-medium text-center">Student List</div>
+            
             <span class="p-input-icon-left">
                 <i class="pi pi-search"></i>
-                <!-- <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search..." /> -->
+                <input pInputText type="text" (input)="dt.filterGlobal($event.target,  'contains')" placeholder="Search..." />
             </span>
+            <button type="button" pButton pRipple icon="pi pi-file-pdf" (click)="exportPdf()" class="p-button-warning ml-2" pTooltip="PDF" tooltipPosition="bottom"></button>
         </div>
     </ng-template>
 
@@ -70,9 +17,7 @@
 
     <ng-template pTemplate="header">
         <tr>
-            <!-- <th style="width: 3rem">
-                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-            </th> -->
+            
             <th pSortableColumn="id">Student ID
                 <p-sortIcon field="id"></p-sortIcon>
             </th>
@@ -93,18 +38,13 @@
     </ng-template>
     <ng-template pTemplate="body" let-student>
         <tr>
-            <!-- <td>
-                <p-tableCheckbox [value]="student"></p-tableCheckbox>
-            </td> -->
             <td>{{student.$key}}</td>
             <td>{{student.firstName | uppercase}}</td>
             <td>{{student.standard}}</td>
-            <td>{{student.email}}
-                <!-- <p-rating [ngModel]="product.rating" [readonly]="true" [cancel]="false"></p-rating> -->
-            </td>
+            <td>{{student.email}}</td>
             <td>{{student.mobileNumber}}</td>
             <td>
-                <button pButton pRipple icon="pi pi-user-edit" class="p-button-rounded p-button-success p-mr-2"
+                <button pButton pRipple icon="pi pi-user-edit" class="p-button-rounded p-button-success"
                     routerLink="/edit-student/{{ student.$key }}"></button>
                 <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
                     (click)="deleteStudent(student)"></button>

@@ -1,31 +1,58 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from './services/auth.service';
-import { User } from './Models/user';
+import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'authProject';
   selected: string;
-  studata:any=[];
-
+  studata: any = [];
+  items: MenuItem[];
 
   constructor(public auth: AuthService) { }
 
-  students = [
-    { name: 'Add-student' },
-    { name: 'Student-list'},
-  ];
-
-  users = [
-    {name:'SignIn'},
-    {name:'SignUp'},
-    {name:'SignOut'}
-  ]
-  onSelected(teams){
-   
+  ngOnInit(): void {
+    this.items = [
+      {
+        label: 'Student',
+        icon: 'pi pi-user',
+        items: [
+          {
+            label: 'Add-Student',
+            icon: 'pi pi-user-plus'
+          },
+          {
+            label: 'Student-List',
+            icon: 'pi pi-users'
+          }
+        ]
+      },
+      {
+        label: 'User',
+        icon: 'pi pi-user',
+        items: [
+          {
+            label: 'SignUp',
+            icon: 'pi pi-pencil'
+          },
+          {
+            label: 'SignIn',
+            icon: 'pi pi-sign-in'
+          },
+          {
+            label: 'SignOut',
+            icon: 'pi pi-sign-out'
+          }
+        ]
+      }
+    ]
   }
+
+
+  
+
 }

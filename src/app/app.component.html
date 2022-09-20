@@ -1,5 +1,5 @@
-<div>
-    <p-menubar>
+<!-- <div>
+    <p-menubar class="w-full">
         <ng-template pTemplate="end">
             <p-button *ngIf="auth.isLoggedIn" class="mr-4" label="Add Student" routerLink="register-student" icon="pi pi-user-plus"></p-button>
             <p-button *ngIf="auth.isLoggedIn" class="mr-4" label="Student list" routerLink="view-students" icon="pi pi-users"></p-button>
@@ -15,4 +15,13 @@
 </div>
 <div>
     <router-outlet></router-outlet>
+</div> -->
+
+<div>
+    <p-menubar [model]="items"></p-menubar>
 </div>
+<div>
+    <router-outlet></router-outlet>
+</div>
+
+

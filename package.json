@@ -20,6 +20,8 @@
     "@angular/platform-browser-dynamic": "^14.1.0",
     "@angular/router": "^14.1.0",
     "firebase": "^9.9.3",
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.5.25",
     "ngx-pagination": "^6.0.2",
     "ngx-toastr": "^15.0.0",
     "primeflex": "^3.2.1",
