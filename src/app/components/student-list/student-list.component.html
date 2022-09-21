@@ -45,9 +45,9 @@
             <td>{{student.mobileNumber}}</td>
             <td>
                 <button pButton pRipple icon="pi pi-user-edit" class="p-button-rounded p-button-success"
-                    routerLink="/edit-student/{{ student.$key }}"></button>
+                    routerLink="/edit-student/{{ student.$key }}" pTooltip="Edit" tooltipPosition="bottom"></button>
                 <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
-                    (click)="deleteStudent(student)"></button>
+                    (click)="DeleteStudent(student)" pTooltip="Delete" tooltipPosition="bottom"></button>
             </td>
         </tr>
     </ng-template>

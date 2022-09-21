@@ -22,7 +22,7 @@ export class CrudService {
 
 
   getStudent(id:string){
-    this.studentRef = this.db.object('student-list/' + id);
+    this.studentRef = this.db.object('students-list/' + id);
     return this.studentRef;
   }
 
@@ -32,7 +32,7 @@ export class CrudService {
   }
 
 
-  updateStudent(student:Student){
+  updateStudent(student:any){
     this.studentRef.update({
       firstName : student.firstName,
       standard : student.standard,
@@ -43,7 +43,7 @@ export class CrudService {
 
 
   deleteStudent(id:string){
-    this.studentRef = this.db.object('student-list/' + id);
+    this.studentRef = this.db.object('students-list/' + id);
     this.studentRef.remove();
   }
 

@@ -23,11 +23,13 @@ export class AppComponent implements OnInit {
         items: [
           {
             label: 'Add-Student',
-            icon: 'pi pi-user-plus'
+            icon: 'pi pi-user-plus',
+            routerLink : 'register-student'
           },
           {
             label: 'Student-List',
-            icon: 'pi pi-users'
+            icon: 'pi pi-users',
+            routerLink : 'view-students'
           }
         ]
       },
@@ -37,15 +39,19 @@ export class AppComponent implements OnInit {
         items: [
           {
             label: 'SignUp',
-            icon: 'pi pi-pencil'
+            icon: 'pi pi-pencil',
+            routerLink: 'register'
           },
           {
             label: 'SignIn',
-            icon: 'pi pi-sign-in'
+            icon: 'pi pi-sign-in',
+            routerLink: 'sign-in'
           },
           {
             label: 'SignOut',
-            icon: 'pi pi-sign-out'
+            icon: 'pi pi-sign-out',
+          routerLink: 'sign-in',
+          command: () =>this.auth.signOut()
           }
         ]
       }

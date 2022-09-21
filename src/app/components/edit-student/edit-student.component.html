@@ -74,7 +74,7 @@
         <button pButton pRipple type="reset" label="Go Back" icon="pi pi-replay"
           class="p-button-rounded p-button-danger p-button-sm mr-2" (click)="goBack()"></button>
 
-        <button pButton pRipple type="submit" label="Add Student" icon="pi pi-user-plus"
+        <button pButton pRipple type="button" label="UpdateStudent" (click)="updateForm()" icon="pi pi-user-plus"
           class="p-button-rounded p-button-success p-button-sm ml-2" [disabled]="!editForm.valid">
         </button>
       </div>

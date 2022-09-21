@@ -18,10 +18,18 @@
 </div> -->
 
 <div>
-    <p-menubar [model]="items"></p-menubar>
+    <p-menubar [model]="items">
+        <ng-template pTemplate="end">
+            <p-image *ngIf="auth.isLoggedIn && auth.data as user; else elseBlock;"
+                src="{{(user.photoURL) ? user.photoURL : '../../../assets/images/dummy2.png'}}" height="40px"
+                width="40px" [preview]="true" pTooltip="Profile picture" tooltipPosition="bottom"></p-image>
+            <ng-template #elseBlock>
+                <p-image src="../assets/images/guest.png" alt="guestmode" class="rounded" height="40px" width="40px"
+                    [preview]="true" pTooltip="Profile picture" tooltipPosition="bottom"></p-image>
+            </ng-template>
+        </ng-template>
+    </p-menubar>
 </div>
 <div>
     <router-outlet></router-outlet>
 </div>
-
-

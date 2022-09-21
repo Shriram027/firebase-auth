@@ -24,9 +24,19 @@ export class EditStudentComponent implements OnInit {
 
   ngOnInit(): void {
     this.updateStudentData();
-    const id = this.actRoute.snapshot.paramMap.get('id');
+    const id: any = this.actRoute.snapshot.paramMap.get('id');
     this.crudApi.getStudent(id).valueChanges().subscribe((data) => {
+      debugger;
       this.editForm.setValue(data);
+    });
+  }
+
+  updateStudentData() {
+    this.editForm = this.fb.group({
+      firstName: ['', [Validators.required, Validators.minLength(3)]],
+      standard: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),]],
+      mobileNumber: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
     });
   }
 
@@ -46,14 +56,7 @@ export class EditStudentComponent implements OnInit {
     return this.editForm.get('mobileNumber')
   }
 
-  updateStudentData() {
-    this.editForm = this.fb.group({
-      firstName: ['', [Validators.required, Validators.minLength(3)]],
-      standard: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),]],
-      mobileNumber: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
-    });
-  }
+
 
 
   goBack() {
@@ -63,7 +66,7 @@ export class EditStudentComponent implements OnInit {
 
   updateForm() {
     this.crudApi.updateStudent(this.editForm.value);
-    this.toastr.success(this.editForm.controls['firstName'].value + 'updated successfully');
+    this.toastr.success(this.editForm.controls['firstName'].value + ' updated successfully');
     this.router.navigate(['view-students']);
   }
 

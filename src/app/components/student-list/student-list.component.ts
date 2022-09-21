@@ -68,10 +68,10 @@ export class StudentListComponent implements OnInit {
   }
 
 
-  deleteStudent(student:any) {
+  DeleteStudent(student:any) {
+    console.log(student)
     if (window.confirm('Are you want to delete this student ?')) { 
       this.crudApi.deleteStudent(student.$key)
-      console.log(student.$key);
       this.toastr.success(student.firstName + ' successfully deleted!');
     }
   }
