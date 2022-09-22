@@ -36,7 +36,7 @@
 
 
 
-<div class="card">
+<!-- <div class="card">
     <div class="surface-card p-8 lg:w-12">
         <div class="text-center mb-5">
             <img src="../../../assets/images/download.jpeg" alt="Image" height="50" class="mb-3">
@@ -95,5 +95,80 @@
             </div>
 
         </form>
+    </div>
+</div> -->
+
+
+<div class="card-container">
+    <div class="surface-card p-8">
+
+
+        <div class="grid p-fluid flex justify-content-center flex-wrap">
+            <div class="col-12">
+                <div class="flex align-items-center justify-content-center">
+                    <img src="../../../assets/images/download.jpeg" alt="Image" height="50" class="mb-3">
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="flex align-items-center justify-content-center">
+                    <h3 class="text-900 text-3xl font-medium">SignIn</h3>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()"> -->
+        <div class="grid p-fluid flex justify-content-center flex-wrap">
+            <div class="col-12 md:col-4">
+                <div class="flex align-items-center justify-content-center p-inputgroup mt-2">
+                    <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                    <input type="email" pInputText placeholder="Email" class="form-control">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="grid p-fluid flex justify-content-center flex-wrap">
+            <div class="col-12 md:col-4">
+                <div class="flex align-items-center justify-content-center p-inputgroup mt-2">
+                    <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
+                    <input type="password" pInputText placeholder="Password" class="form-control">
+                </div>
+                <div class=" text-right align-items-right justify-content-right mb-1">
+                    <a class="font-medium no-underline ml-2 text-blue-500"
+                        routerLink="/forgot-password">Forgot password?</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid p-fluid flex justify-content-center flex-wrap">
+            <div class="flex align-items-center justify-content-center mt-4">
+                <button pButton pRipple type="reset" label="Cancel" icon="pi pi-times"
+                    class="p-button-rounded p-button-danger p-button-sm mr-2"></button>
+            </div>
+            <div class="flex align-items-center justify-content-center mt-4">
+                <button pButton pRipple type="submit" label="Sign in" icon="pi pi-sign-in"
+                    class="p-button-rounded p-button-success p-button-sm ml-2"
+                    (click)="auth.signIn(email,password)"></button>
+            </div>
+        </div>
+
+        <div class="grid p-fluid flex justify-content-center flex-wrap">
+            <div class="mt-4">
+                <button pButton pRipple label="Signin with Google" icon="pi pi-google"
+                    class="p-button-rounded p-button-primary p-button-sm" (click)="auth.GoogleAuth()"></button>
+            </div>
+        </div>
+
+        <div class="grid p-fluid flex justify-content-center flex-wrap">
+            <div class="mt-2">
+                <span class="text-900">Don't have an account ? <span class="redirect text-blue-500"
+                        routerLink="/register"> Sign
+                        Up</span></span>
+            </div>
+        </div>
+        <!-- </form> -->
+
+
     </div>
 </div>
