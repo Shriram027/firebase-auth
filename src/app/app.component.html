@@ -1,22 +1,3 @@
-<!-- <div>
-    <p-menubar class="w-full">
-        <ng-template pTemplate="end">
-            <p-button *ngIf="auth.isLoggedIn" class="mr-4" label="Add Student" routerLink="register-student" icon="pi pi-user-plus"></p-button>
-            <p-button *ngIf="auth.isLoggedIn" class="mr-4" label="Student list" routerLink="view-students" icon="pi pi-users"></p-button>
-            <p-button *ngIf="!auth.isLoggedIn" class="mr-4" label="SignUp" routerLink="register" icon="pi pi-pencil"></p-button>
-            <p-button *ngIf="!auth.isLoggedIn" class="mr-4" label="SignIn" routerLink="sign-in" icon="pi pi-sign-in"></p-button>
-            <p-button *ngIf="auth.isLoggedIn" class="mr-4" label="SignOut" (click)="auth.signOut()" routerLink="sign-in" icon="pi pi-sign-out"></p-button>
-            <p-image *ngIf="auth.isLoggedIn && auth.data as user; else elseBlock;" src="{{(user.photoURL) ? user.photoURL : '../../../assets/images/dummy2.png'}}" height="40px" width="40px" [preview]="true"></p-image>
-            <ng-template #elseBlock>
-                <p-image src="../assets/images/guest.png" alt="guestmode" class="rounded" height="40px" width="40px" [preview]="true"></p-image>
-            </ng-template>
-        </ng-template>
-    </p-menubar>
-</div>
-<div>
-    <router-outlet></router-outlet>
-</div> -->
-
 <div>
     <p-menubar [model]="items">
         <ng-template pTemplate="end">

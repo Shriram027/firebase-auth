@@ -18,32 +18,30 @@
     <ng-template pTemplate="header">
         <tr>
             
-            <th pSortableColumn="id">Student ID
-                <p-sortIcon field="id"></p-sortIcon>
+            <th class="text-center">Student ID</th>
+            <th pSortableColumn="firstName" class="text-center">Name
+                <p-sortIcon field="firstName"></p-sortIcon>
             </th>
-            <th pSortableColumn="name">Name
-                <p-sortIcon field="name"></p-sortIcon>
+            <th pSortableColumn="standard" class="text-center">Standard
+                <p-sortIcon field="standard"></p-sortIcon>
             </th>
-            <th pSortableColumn="std">Standard
-                <p-sortIcon field="std"></p-sortIcon>
-            </th>
-            <th pSortableColumn="email"> Email
+            <th pSortableColumn="email" class="text-center"> Email
                 <p-sortIcon field="email"></p-sortIcon>
             </th>
-            <th pSortableColumn="mobile">Mobile no.
-                <p-sortIcon field="mobile"></p-sortIcon>
+            <th pSortableColumn="mobileNumber" class="text-center">Mobile no.
+                <p-sortIcon field="mobileNumber"></p-sortIcon>
             </th>
-            <th>Actions</th>
+            <th class="text-center">Actions</th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-student>
         <tr>
-            <td>{{student.$key}}</td>
-            <td>{{student.firstName | uppercase}}</td>
-            <td>{{student.standard}}</td>
-            <td>{{student.email}}</td>
-            <td>{{student.mobileNumber}}</td>
-            <td>
+            <td class="text-center">{{student.$key}}</td>
+            <td class="text-center">{{student.firstName | uppercase}}</td>
+            <td class="text-center">{{student.standard}}</td>
+            <td class="text-center">{{student.email}}</td>
+            <td class="text-center">{{student.mobileNumber}}</td>
+            <td class="text-center">
                 <button pButton pRipple icon="pi pi-user-edit" class="p-button-rounded p-button-success"
                     routerLink="/edit-student/{{ student.$key }}" pTooltip="Edit" tooltipPosition="bottom"></button>
                 <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
