@@ -7,7 +7,8 @@
 
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class=" form-group text-center">
             <div class="formgrid grid mb-2">
-                <div class="field col">
+                <div class="field col-12 md:col-6">
+
                     <label class="block text-900 font-medium">UserName</label>
                     <span class="p-input-icon-left">
                         <i class="pi pi-user"></i>
@@ -20,7 +21,8 @@
                 </div>
 
 
-                <div class="field col">
+                <div class="field col-12 md:col-6">
+
                     <label class="block text-900 font-medium">Email</label>
                     <span class="p-input-icon-left">
                         <i class="pi pi-envelope"></i>
@@ -34,8 +36,9 @@
             </div>
 
 
+
             <div class="formgrid grid mb-3">
-                <div class="field col">
+                <div class="field col-12 md:col-6">
                     <label class="block text-900 font-medium">Mobile</label>
                     <span class="p-input-icon-left">
                         <i class="pi pi-phone"></i>
@@ -48,14 +51,16 @@
                 </div>
 
 
-                <div class="field col">
-                    <label class="block text-900 font-medium">Profile picture</label>
-                    <span class="p-input-icon-left">
+                <!-- <div class="field col-12 md:col-6">
+                    <div class="field col">
+                        <label class="block text-900 font-medium">Profile picture</label>
+                        <span class="p-input-icon-left">
                     <i class="pi pi-image"></i>
                     <input id="img" type="file" pInputText class=" form-control" formControlName="photoURL"
                         [ngClass]="{'is-invalid': submitted && f['photoURL'].invalid && f['photoURL'].errors || f['photoURL'].touched && f['photoURL'].invalid}" /></span>
-                    <div class="div1" *ngIf="(f['photoURL'].touched || submitted) && f['photoURL'].errors?.['required']" style="color: red;">Profile picture is required</div>
-                </div>
+                        <div class="div1" *ngIf="(f['photoURL'].touched || submitted) && f['photoURL'].errors?.['required']" style="color: red;">Profile picture is required</div>
+                    </div>
+                </div> -->
             </div>
 
 
@@ -69,7 +74,8 @@
                     <div class="div1" *ngIf="(f['password'].touched || submitted) && f['password'].errors?.['required']"
                         style="color: red;">Password is required</div>
                 </div> -->
-                <div class="field col">
+                <div class="field col-12 md:col-6">
+
                     <label class="block text-900 font-medium">Password</label>
                     <p-password class="form-control" formControlName="password" [toggleMask]="true" [ngClass]="{'is-invalid': submitted && f['password'].invalid && f['password'].errors || f['password'].touched && f['password'].invalid}">
                         <ng-template *ngIf="(f['password'].touched || submitted) && f['password'].errors?.['required']" style="color: red;">Password is required</ng-template>
@@ -89,7 +95,8 @@
                     </p-password>
                 </div>
 
-                <div class="field col">
+                <div class="field col-12 md:col-6">
+
                     <label class="block text-900 font-medium">Confirm Password</label>
                     <span class="p-input-icon-left">
                         <i class="pi pi-key"></i>
@@ -98,6 +105,7 @@
                     <div *ngIf="(f['confirmpwd'].touched || submitted) && f['confirmpwd'].errors?.['required']" style="color: red;">Confirm password is required</div>
                 </div>
             </div>
+
 
             <div class="mb-4">
                 <button pButton pRipple type="reset" label="Cancel" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-sm mr-2" (click)="reset()"></button>

@@ -15,12 +15,13 @@ const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
   { path: 'sign-in', component: SignInComponent },
   { path: 'register', component: SignUpComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard] },
+  { path: 'dashboard', component: DashboardComponent},
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email', component: VerifyEmailComponent },
-  { path: 'register-student', component: AddStudentComponent, canActivate:[AuthGuard] },
-  { path: 'view-students', component: StudentListComponent, canActivate:[AuthGuard] },
-  { path: 'edit-student/:id', component: EditStudentComponent, canActivate:[AuthGuard] },
+  // { path: 'register-student', component: AddStudentComponent, canActivate:[AuthGuard] },
+  { path: 'register-student', component: AddStudentComponent},
+  { path: 'view-students', component: StudentListComponent},
+  { path: 'edit-student/:id', component: EditStudentComponent},
   {path: '**' , component: ErrorPageComponent}
 ];
 
