@@ -26,7 +26,6 @@ export class EditStudentComponent implements OnInit {
     this.updateStudentData();
     const id: any = this.actRoute.snapshot.paramMap.get('id');
     this.crudApi.getStudent(id).valueChanges().subscribe((data) => {
-      debugger;
       this.editForm.setValue(data);
     });
   }

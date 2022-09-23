@@ -1,4 +1,4 @@
-<p-table #dt [value]="students" [rows]="5" [paginator]="true" 
+<p-table #dt [value]="students" [rows]="5" [paginator]="true" responsiveLayout="scroll"
     [globalFilterFields]="['Name','Standard','Email','Mobile no.']" [(selection)]="selectedStudents" 
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
     <ng-template pTemplate="caption">

@@ -1,7 +1,7 @@
 <div>
     <p-menubar [model]="items">
         <ng-template pTemplate="end">
-            <p-image *ngIf="auth.isLoggedIn && auth.data as user; else elseBlock;"
+            <p-image *ngIf="auth.isLoggedIn && auth.data as user; else elseBlock;" 
                 src="{{(user.photoURL) ? user.photoURL : '../../../assets/images/dummy2.png'}}" height="40px"
                 width="40px" [preview]="true" pTooltip="Profile picture" tooltipPosition="bottom"></p-image>
             <ng-template #elseBlock>
