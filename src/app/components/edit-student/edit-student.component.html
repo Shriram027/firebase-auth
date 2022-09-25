@@ -1,4 +1,4 @@
-<div class="card">
+<!-- <div class="card">
   <div class="surface-card p-8">
     <div class="text-900 text-3xl text-center font-medium mb-6">
       Edit Student Detail
@@ -78,6 +78,109 @@
           class="p-button-rounded p-button-success p-button-sm ml-2" [disabled]="!editForm.valid">
         </button>
       </div>
+    </form>
+  </div>
+</div> -->
+
+
+
+
+
+
+<div class="card-container ui-fluid">
+  <div class="surface-card p-8">
+
+    <div class="grid p-fluid flex justify-content-center flex-wrap">
+      <div class="col-12">
+        <div class="flex align-items-center justify-content-center">
+          <h3 class="text-900 text-3xl font-medium"> Edit Student Detail</h3>
+        </div>
+      </div>
+    </div>
+
+
+
+    <form [formGroup]="editForm" (ngSubmit)="updateForm()" class="form-group text-center" novalidate>
+      <div class="grid p-fluid flex justify-content-center flex-wrap">
+        <div class="col-12 md:col-4">
+          <div class="flex align-items-center justify-content-center p-inputgroup mt-2">
+            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <input type="text" pInputText placeholder="Student Name" formControlName="firstName" class="form-control"
+              [ngClass]="{'is-invalid':firstName.touched && firstName.invalid}">
+              <div *ngIf="firstName.touched && firstName.invalid && firstName.errors" style="color:red;">
+                <div *ngIf="firstName.errors?.['required']">
+                  <sup>*</sup>Please enter student name
+                </div>
+                <div *ngIf="firstName.errors?.['minlength']">
+                  <sup>*</sup>Name shouldn't be less than 3 words
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 md:col-4">
+          <div class="flex align-items-center justify-content-center p-inputgroup mt-2">
+            <span class="p-inputgroup-addon"><i class="pi pi-book"></i></span>  
+            <input type="text" pInputText formControlName="standard" placeholder="Standard" class="form-control"
+              required [ngClass]="{'is-invalid': standard.touched && standard.invalid}" />
+            <div *ngIf="standard.touched && standard.invalid && standard.errors" style="color:red;">
+              <div *ngIf="standard.errors?.['required']"> 
+                <sup>*</sup>Please enter standard.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="grid p-fluid flex justify-content-center flex-wrap">
+        <div class="col-12 md:col-4">
+          <div class="flex align-items-center justify-content-center p-inputgroup mt-2">
+            <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
+            <input type="email" pInputText formControlName="email" placeholder="Email" class="form-control" required
+              [ngClass]="{'is-invalid':email.touched && email.invalid}" />
+              
+            <div *ngIf="email.touched && email.invalid && email.errors" style="color:red;" >
+              <div *ngIf="email.errors?.['required']">
+                <sup>*</sup>Email is required.
+              </div>
+              <div *ngIf="email.errors?.['pattern']">
+                <sup>*</sup>Please enter valid email.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 md:col-4">
+          <div class="flex align-items-center justify-content-center p-inputgroup mt-2">
+            <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
+            <input type="number" pInputText formControlName="mobileNumber" placeholder="Contact" class="form-control"
+              required [ngClass]="{'is-invalid': mobileNumber.touched && mobileNumber.invalid}" />
+            <div *ngIf="mobileNumber.touched && mobileNumber.invalid && mobileNumber.errors" style="color:red;">
+              <div *ngIf="mobileNumber.errors?.['required']">
+                <sup>*</sup>Contact number required.
+              </div>
+              <div *ngIf="mobileNumber.errors?.['pattern']">
+                <sup>*</sup>Please enter valid contact number.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="grid p-fluid flex justify-content-center flex-wrap">
+        <div class="flex align-items-center justify-content-center mt-4">
+          <button pButton pRipple type="reset" label="Go Back" icon="pi pi-replay"
+            class="p-button-rounded p-button-danger p-button-sm mr-2" (click)="goBack()"></button>
+        </div>
+        <div class="flex align-items-center justify-content-center mt-4">
+          <button pButton pRipple type="button" label="UpdateStudent" (click)="updateForm()" icon="pi pi-user-plus"
+            class="p-button-rounded p-button-success p-button-sm ml-2" [disabled]="!editForm.valid"></button>
+        </div>
+      </div>
+
+
     </form>
   </div>
 </div>
