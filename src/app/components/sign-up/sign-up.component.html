@@ -1,116 +1,3 @@
-<!-- <div class="card">
-    <div class="surface-card p-8">
-        <div class="text-center mb-2">
-            <div class="text-900 text-3xl font-medium mb-3">Welcome</div>
-        </div>
-
-
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class=" form-group text-center">
-            <div class="formgrid grid mb-2">
-                <div class="field col">
-                    <label class="block text-900 font-medium">UserName</label>
-                    <span class="p-input-icon-left">
-                        <i class="pi pi-user"></i>
-                        <input type="text" pInputText class=" form-control" formControlName="userName"
-                            [ngClass]="{'is-invalid': submitted && f['userName'].errors || f['userName'].touched || f['userName'].invalid }" /></span>
-                    <div *ngIf="(f['userName'].touched || submitted) && f['userName'].invalid" style="color: red;">
-                        <div *ngIf="f['userName'].errors?.['required']">User Name is required</div>
-                        <div *ngIf="f['userName'].errors?.['pattern']">Invalid username</div>
-                    </div>
-                </div>
-
-
-                <div class="field col">
-                    <label class="block text-900 font-medium">Email</label>
-                    <span class="p-input-icon-left">
-                        <i class="pi pi-envelope"></i>
-                        <input type="email" pInputText class=" form-control" formControlName="email"
-                            [ngClass]="{'is-invalid': submitted && f['email'].errors || f['email'].touched}"/></span>
-                    <div *ngIf="(f['email'].touched || submitted) && f['email'].errors" style="color: red;">
-                        <div *ngIf="f['email'].errors?.['required']">Email is required</div>
-                        <div *ngIf="f['email'].errors?.['email']">Invalid email address.</div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="formgrid grid mb-3">
-                <div class="field col">
-                    <label class="block text-900 font-medium">Mobile</label>
-                    <span class="p-input-icon-left">
-                        <i class="pi pi-phone"></i>
-                        <input id="mob" type="number" pInputText class="form-control" formControlName="mobile"
-                            [ngClass]="{'is-invalid': submitted && f['mobile'].errors || f['mobile'].touched}" /></span>
-                    <div *ngIf="(f['mobile'].touched && submitted) && f['mobile'].errors" class="invalid-feedback">
-                        <div *ngIf="f['mobile'].errors?.['required']">Mobile is required</div>
-                        <div *ngIf="f['mobile'].errors?.['pattern']">Please, Enter 10 digit Mobile Number.</div>
-                    </div>
-                </div>
-
-
-                <div class="field col">
-                    <label class="block text-900 font-medium">Profile picture</label>
-                    <span class="p-input-icon-left">
-                    <i class="pi pi-image"></i>
-                    <input id="img" type="file" pInputText class=" form-control" formControlName="photoURL"
-                        [ngClass]="{'is-invalid': submitted && f['photoURL'].invalid && f['photoURL'].errors || f['photoURL'].touched && f['photoURL'].invalid}" /></span>
-                    <div class="div1" *ngIf="(f['photoURL'].touched || submitted) && f['photoURL'].errors?.['required']" style="color: red;">Profile picture is required</div>
-                </div>
-            </div>
-
-
-            <div class="formgrid grid mb-3">
-                <div class="field col">
-                    <label class="block text-900 font-medium">Password</label>
-                    <p-password class="form-control" formControlName="password" [toggleMask]="true" [ngClass]="{'is-invalid': submitted && f['password'].invalid && f['password'].errors || f['password'].touched && f['password'].invalid}">
-                        <ng-template *ngIf="(f['password'].touched || submitted) && f['password'].errors?.['required']" style="color: red;">Password is required</ng-template>
-                        <ng-template pTemplate="header">
-                            <h6>Pick a password</h6>
-                        </ng-template>
-                        <ng-template pTemplate="footer">
-                            <p-divider></p-divider>
-                            <p class="mt-2">Suggestions</p>
-                            <ul class="pl-2 ml-2 mt-0" style="line-height:1">
-                                <li>At least one lowercase</li>
-                                <li>At least one uppercase</li>
-                                <li>At least one numeric</li>
-                                <li>Minimum 8 characters</li>
-                            </ul>
-                        </ng-template>
-                    </p-password>
-                </div>
-
-                <div class="field col">
-                    <label class="block text-900 font-medium">Confirm Password</label>
-                    <span class="p-input-icon-left">
-                        <i class="pi pi-key"></i>
-                        <input id="pwd2" type="password" pInputText class=" form-control" formControlName="confirmpwd"
-                            [ngClass]="{'is-invalid': submitted && f['confirmpwd'].invalid && f['confirmpwd'].errors || f['confirmpwd'].touched && f['confirmpwd'].invalid}" /></span>
-                    <div *ngIf="(f['confirmpwd'].touched || submitted) && f['confirmpwd'].errors?.['required']" style="color: red;">Confirm password is required</div>
-                </div>
-            </div>
-
-            <div class="mb-4">
-                <button pButton pRipple type="reset" label="Cancel" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-sm mr-2" (click)="reset()"></button>
-                <button pButton pRipple type="submit" label="Submit" icon="pi pi-check" class="p-button-rounded p-button-success p-button-sm ml-2"></button>
-            </div>
-
-            <div class="mb-3">
-                <button pButton pRipple label="Continue with Google" icon="pi pi-google" class="p-button-rounded p-button-primary p-button-sm" (click)="auth.GoogleAuth()"></button>
-            </div>
-
-            <div class="mb-2">
-                <span>Already have an account?
-                    <span class="redirect text-900 font-medium" routerLink="/sign-in">Log In</span></span>
-            </div>
-
-
-        </form>
-    </div>
-</div> -->
-
-
-
 <div class="card-container">
     <div class="surface-card p-8">
 
@@ -130,14 +17,14 @@
                 <div class="col-12 md:col-4">
                     <div class="flex align-items-center justify-content-center p-inputgroup mt-2">
                         <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                        <input type="text" pInputText placeholder="Username" class="form-control">
+                        <input type="text" pInputText placeholder="Username" class="form-control" formControlName="userName">
                     </div>
                 </div>
 
                 <div class="col-12 md:col-4">
                     <div class="flex align-items-center justify-content-center p-inputgroup mt-2">
                         <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
-                        <input type="email" pInputText placeholder="Email" class="form-control">
+                        <input type="email" pInputText placeholder="Email" class="form-control" formControlName="email">
                     </div>
                 </div>
             </div>
@@ -147,14 +34,14 @@
                 <div class="col-12 md:col-4">
                     <div class="flex align-items-center justify-content-center p-inputgroup mt-2">
                         <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
-                        <input type="number" pInputText placeholder="Mobile" class="form-control">
+                        <input type="number" pInputText placeholder="Mobile" class="form-control" formControlName="mobile">
                     </div>
                 </div>
 
                 <div class="col-12 md:col-4">
                     <div class="flex align-items-center justify-content-center p-inputgroup mt-2">
                         <span class="p-inputgroup-addon"><i class="pi pi-image"></i></span>
-                        <input type="file" pInputText placeholder="Profile picture" class="form-control">
+                        <input type="file" pInputText placeholder="Profile picture" class="form-control" formControlName="photoURL">
                     </div>
                 </div>
             </div>
@@ -164,14 +51,14 @@
                 <div class="col-12 md:col-4">
                     <div class="flex align-items-center justify-content-center p-inputgroup mt-2">
                         <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
-                        <input type="password" pInputText placeholder="Password" class="form-control">
+                        <input type="password" pInputText placeholder="Password" class="form-control" formControlName="password">
                     </div>
                 </div>
 
                 <div class="col-12 md:col-4">
                     <div class="flex align-items-center justify-content-center p-inputgroup mt-2">
                         <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
-                        <input type="password" pInputText placeholder="Confirm Password" class="form-control">
+                        <input type="password" pInputText placeholder="Confirm Password" class="form-control" formControlName="confirmpwd">
                     </div>
                 </div>
             </div>

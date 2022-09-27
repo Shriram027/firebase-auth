@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -8,17 +9,32 @@ import { AuthService } from '../../services/auth.service';
 })
 export class SignInComponent implements OnInit {
   title: string = "Login";
-
-
-
   email:string;
   password:string;
 
-  constructor(public auth: AuthService) { }
+  constructor(public auth: AuthService, public router:Router) { }
 
   ngOnInit(): void {
   }
 
- 
+  GoogleAuth(){
+    let data = this.auth.GoogleAuth();
+    if(data){
+      this.router.navigate(['dashboard']);
+    }
+    else{
+      alert("Unable to login");
+    }
+  }
+
+  signIn(email,password){
+    let data = this.auth.signIn(email,password);
+    if(data){
+      this.router.navigate(['dashboard']);
+    }
+    else{
+      alert("Unable to login");
+    }
+  }
 
 }

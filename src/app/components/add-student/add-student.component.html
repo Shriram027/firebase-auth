@@ -1,98 +1,4 @@
-<!-- <div class="card">
-    <div class="surface-card p-8">
-        <div class="text-900 text-3xl text-center font-medium mb-6">
-            Add Student
-        </div>
-
-        <form [formGroup]="studentForm" (ngSubmit)="submitStudentData()" class="form-group" novalidate>
-
-            <div class="formgrid grid mb-3">
-                <div class="field col1">
-                    <label class="block text-900 font-medium">Name</label>
-                    <span class="p-input-icon-left">
-                        <i class="pi pi-user"></i>
-                        <input type="text" pInputText class="form-control" formControlName="firstName" required
-                            [ngClass]="{ 'is-invalid': firstName.touched && firstName.invalid }" /></span>
-                    <div *ngIf="firstName.touched && firstName.invalid && firstName.errors" style="color: red">
-                        <div *ngIf="firstName.errors?.['required']">
-                            <sup>*</sup>Please enter student name
-                        </div>
-                        <div *ngIf="firstName.errors?.['minlength']">
-                            <sup>*</sup>Name shouldn't be less than 3 words
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="field col1">
-                    <label class="block text-900 font-medium">Standard</label>
-                    <span class="p-input-icon-left">
-                        <i class="pi pi-book"></i>
-                        <input type="text" pInputText class="form-control" formControlName="standard" required
-                            [ngClass]="{ 'is-invalid': standard.touched && standard.invalid }" /></span>
-                    <div *ngIf="standard.touched && standard.invalid && standard.errors" style="color: red">
-                        <div *ngIf="standard.errors?.['required']">
-                            <sup>*</sup>Please enter standard
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="formgrid grid mb-3">
-                <div class="field col1">
-                    <label class="block text-900 font-medium">Email</label>
-                    <span class="p-input-icon-left">
-                        <i class="pi pi-envelope"></i>
-                        <input type="email" pInputText formControlName="email" class="form-control" required
-                            [ngClass]="{'is-invalid': email.touched && email.invalid}" /></span>
-                    <div *ngIf="email.touched && email.invalid && email.errors" style="color: red;">
-                        <div *ngIf="email.touched && email.invalid" class="error">
-                            <sup>*</sup>Please provide email
-                        </div>
-                        <div *ngIf="email.errors?.['pattern']" class="error">
-                            <sup>*</sup>Please enter correct email
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="field col1">
-                    <label class="block text-900 font-medium">Mobile number</label>
-                    <span class="p-input-icon-left">
-                        <i class="pi pi-phone"></i>
-                        <input type="text" pInputText formControlName="mobileNumber" class="form-control" required
-                            [ngClass]="{'is-invalid' : mobileNumber.touched && mobileNumber.invalid || mobileNumber.errors?.['pattern'] }" /></span>
-                    <div *ngIf="mobileNumber.touched  && mobileNumber.errors" style="color:red;">
-                        <div *ngIf="mobileNumber.touched && mobileNumber.invalid">
-                            <sup>*</sup>Please provide contact number
-                        </div>
-                        <div *ngIf="mobileNumber.errors?.['pattern']">
-                            <sup>*</sup>Use numbers only
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="mb-4 text-center">
-                <button pButton pRipple type="reset" label="Reset" icon="pi pi-times"
-                    class="p-button-rounded p-button-danger p-button-sm mr-2" (click)="resetForm()"></button>
-
-                <button pButton pRipple type="submit" label="Add Student" icon="pi pi-user-plus"
-                    class="p-button-rounded p-button-success p-button-sm ml-2" [disabled]="!studentForm.valid">
-                </button>
-            </div>
-
-
-        </form>
-        
-    </div>
-</div> -->
-
-
-
-<div class="card-container">
+<div class="card-container" style="height:auto;">
     <div class="surface-card p-8">
 
         <div class="grid p-fluid flex justify-content-center flex-wrap">
@@ -110,14 +16,14 @@
                 <div class="col-12 md:col-4">
                     <div class="flex align-items-center justify-content-center p-inputgroup mt-2">
                         <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                        <input type="text" pInputText placeholder="Student Name" class="form-control">
+                        <input type="text" pInputText placeholder="Student Name" class="form-control" formControlName="firstName">
                     </div>
                 </div>
 
                 <div class="col-12 md:col-4">
                     <div class="flex align-items-center justify-content-center p-inputgroup mt-2">
                         <span class="p-inputgroup-addon"><i class="pi pi-book"></i></span>
-                        <input type="text" pInputText placeholder="Standard" class="form-control">
+                        <input type="text" pInputText placeholder="Standard" class="form-control" formControlName="standard">
                     </div>
                 </div>
             </div>
@@ -127,14 +33,14 @@
                 <div class="col-12 md:col-4">
                     <div class="flex align-items-center justify-content-center p-inputgroup mt-2">
                         <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
-                        <input type="email" pInputText placeholder="Email" class="form-control">
+                        <input type="email" pInputText placeholder="Email" class="form-control" formControlName="email">
                     </div>
                 </div>
 
                 <div class="col-12 md:col-4">
                     <div class="flex align-items-center justify-content-center p-inputgroup mt-2">
                         <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
-                        <input type="number" pInputText placeholder="Mobile" class="form-control">
+                        <input type="number" pInputText placeholder="Mobile" class="form-control" formControlName="mobileNumber">
                     </div>
                 </div>
             </div>

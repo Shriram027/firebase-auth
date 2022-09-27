@@ -1,12 +1,1 @@
-/* .p-table .ui-table-tbody > tr:not(.ui-state-highlight):not(.ui-contextmenu-selected) {
-    background-color:orange !important;
- }
- 
- p-table .ui-table .ui-table-tbody > tr.ui-state-highlight {
-    background-color:green !important;
-    color: #ffffff;
- } */
- 
- .ui-state-highlight {
-  background: red;
-}
+

@@ -92,11 +92,4 @@ export class StudentListComponent implements OnInit {
     doc.save('studentDetails.pdf');
 }
 
-
-// exportPdf() {
-//   const doc = new jsPDF();
-//   (doc as any).autoTable({columns: this.exportColumns, body: this.students});
-//   doc.save('data.pdf');
-// }
-
 }

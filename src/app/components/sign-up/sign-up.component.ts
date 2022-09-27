@@ -9,18 +9,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class SignUpComponent implements OnInit {
   title: string = "Signup";
-  // showPassword = false;
   data: any;
-
-  // loginForm: FormGroup = new FormGroup({
-  //   userName: new FormControl(''),
-  //   email: new FormControl(''),
-  //   mobile: new FormControl(''),
-  //   password: new FormControl(''),
-  //   confirmpwd: new FormControl(''),
-  //   photoURL: new FormControl('')
-  // });
-
   loginForm: FormGroup
   submitted: boolean = false;
 
@@ -58,18 +47,5 @@ export class SignUpComponent implements OnInit {
     this.submitted = false;
     this.loginForm.reset();
   }
-
-
-  // toggleShowPassword() {
-  //   this.showPassword = !this.showPassword;
-  //   console.log("this.showPassword" , this.showPassword)
-  // }
-
-  // get password() {
-  //   return this.loginForm.controls['password'];
-  // }
-  // get confirmPassword() {
-  //   return this.loginForm.controls['confirmPassword'];
-  // }
 
 }
