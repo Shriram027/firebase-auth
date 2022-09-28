@@ -24,7 +24,7 @@ export class AddStudentComponent implements OnInit {
       firstName: ['', [Validators.required, Validators.minLength(3)]],
       standard: ['',[Validators.required]],
       email: ['',[Validators.required,Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),]],
-      mobileNumber: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      mobileNumber: ['', [Validators.required,  Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
     });
   }
 

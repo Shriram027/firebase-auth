@@ -1,7 +1,7 @@
 <div class="card-container" style="height:auto;">
     <div class="surface-card p-8">
 
-        <div class="grid p-fluid flex justify-content-center flex-wrap">
+        <div class="grid p-fluid flex justify-content-center flex-wrap mb-1">
             <div class="col-12">
                 <div class="flex align-items-center justify-content-center">
                     <h3 class="text-900 text-3xl font-medium">Add Student</h3>
@@ -11,12 +11,20 @@
 
 
 
-        <form [formGroup]="studentForm" (ngSubmit)="submitStudentData()" class="form-group" novalidate>
+        <form [formGroup]="studentForm" (ngSubmit)="submitStudentData()" class="form-group text-center" novalidate autocomplete="off">
             <div class="grid p-fluid flex justify-content-center flex-wrap mt-8">
                 <div class="col-12 md:col-4">
                     <div class="flex align-items-center justify-content-center p-inputgroup">
                         <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
                         <input type="text" pInputText placeholder="Student Name" class="form-control" formControlName="firstName">
+                    </div>
+                    <div *ngIf="firstName.touched && firstName.invalid" style="color: red;">
+                        <div *ngIf="firstName.errors?.['required']">
+                            <sup>*</sup>Please enter atleast first name.
+                        </div>
+                        <div *ngIf="firstName.errors?.['minlength']">
+                            <sup>*</sup>Name shouldn't be less than 3 words.
+                        </div>
                     </div>
                 </div>
 
@@ -25,6 +33,9 @@
                         <span class="p-inputgroup-addon"><i class="pi pi-book"></i></span>
                         <input type="text" pInputText placeholder="Standard" class="form-control" formControlName="standard">
                     </div>
+                    <p *ngIf="standard.touched && standard.invalid" style="color: red;">
+                        <sup>*</sup>Please provide standard.
+                    </p>
                 </div>
             </div>
 
@@ -35,6 +46,14 @@
                         <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
                         <input type="email" pInputText placeholder="Email" class="form-control" formControlName="email">
                     </div>
+                    <div *ngIf="email.touched && email.invalid" style="color: red;">
+                        <div *ngIf="email.errors?.['required']">
+                            <sup>*</sup>Please provide email.
+                        </div>
+                        <div *ngIf="email.errors?.['pattern']">
+                            <sup>*</sup>Please enter correct email.
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-12 md:col-4">
@@ -42,21 +61,26 @@
                         <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
                         <input type="number" pInputText placeholder="Mobile" class="form-control" formControlName="mobileNumber">
                     </div>
+                    <div *ngIf="mobileNumber.touched && mobileNumber.invalid" style="color: red;">
+                        <div *ngIf="mobileNumber.errors?.['required']">
+                            <sup>*</sup>Please provide mobile no.
+                        </div>
+                        <div *ngIf="mobileNumber.errors?.['pattern']">
+                            <sup>*</sup>Only 10 digits are allowed.
+                        </div>
+                    </div>
                 </div>
             </div>
 
 
-<div class="grid p-fluid flex justify-content-center flex-wrap mt-4">
-            <div class="flex align-items-center justify-content-center mt-4">
-                <button pButton pRipple type="reset" label="Reset" icon="pi pi-times"
-                    class="p-button-rounded p-button-danger p-button-sm mr-2" (click)="resetForm()"></button>
+            <div class="grid p-fluid flex justify-content-center flex-wrap mt-4">
+                <div class="flex align-items-center justify-content-center mt-4">
+                    <button pButton pRipple type="reset" label="Reset" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-sm mr-2" (click)="resetForm()"></button>
+                </div>
+                <div class="flex align-items-center justify-content-center mt-4">
+                    <button pButton pRipple type="submit" label="Add Student" icon="pi pi-user-plus" class="p-button-rounded p-button-success p-button-sm ml-2" [disabled]="!studentForm.valid"></button>
+                </div>
             </div>
-            <div class="flex align-items-center justify-content-center mt-4">
-                <button pButton pRipple type="submit" label="Add Student" icon="pi pi-user-plus"
-                    class="p-button-rounded p-button-success p-button-sm ml-2"
-                    [disabled]="!studentForm.valid"></button>
-            </div>
-        </div>
 
 
         </form>
