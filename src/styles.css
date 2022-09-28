@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+    height: auto;
+}
+
+.p-datatable .p-sortable-column:not(.p-highlight):hover {
+    color: #1b2e3f !important;
+}
+
+.p-datatable .p-sortable-column .p-sortable-column-icon:hover {
+    color: #1b2e3f !important;
+}

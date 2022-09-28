@@ -12,16 +12,16 @@
 
 
         <form [formGroup]="studentForm" (ngSubmit)="submitStudentData()" class="form-group" novalidate>
-            <div class="grid p-fluid flex justify-content-center flex-wrap">
+            <div class="grid p-fluid flex justify-content-center flex-wrap mt-8">
                 <div class="col-12 md:col-4">
-                    <div class="flex align-items-center justify-content-center p-inputgroup mt-2">
+                    <div class="flex align-items-center justify-content-center p-inputgroup">
                         <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
                         <input type="text" pInputText placeholder="Student Name" class="form-control" formControlName="firstName">
                     </div>
                 </div>
 
                 <div class="col-12 md:col-4">
-                    <div class="flex align-items-center justify-content-center p-inputgroup mt-2">
+                    <div class="flex align-items-center justify-content-center p-inputgroup">
                         <span class="p-inputgroup-addon"><i class="pi pi-book"></i></span>
                         <input type="text" pInputText placeholder="Standard" class="form-control" formControlName="standard">
                     </div>
@@ -29,16 +29,16 @@
             </div>
 
 
-            <div class="grid p-fluid flex justify-content-center flex-wrap">
+            <div class="grid p-fluid flex justify-content-center flex-wrap mt-4">
                 <div class="col-12 md:col-4">
-                    <div class="flex align-items-center justify-content-center p-inputgroup mt-2">
+                    <div class="flex align-items-center justify-content-center p-inputgroup">
                         <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
                         <input type="email" pInputText placeholder="Email" class="form-control" formControlName="email">
                     </div>
                 </div>
 
                 <div class="col-12 md:col-4">
-                    <div class="flex align-items-center justify-content-center p-inputgroup mt-2">
+                    <div class="flex align-items-center justify-content-center p-inputgroup">
                         <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
                         <input type="number" pInputText placeholder="Mobile" class="form-control" formControlName="mobileNumber">
                     </div>
@@ -46,7 +46,7 @@
             </div>
 
 
-<div class="grid p-fluid flex justify-content-center flex-wrap">
+<div class="grid p-fluid flex justify-content-center flex-wrap mt-4">
             <div class="flex align-items-center justify-content-center mt-4">
                 <button pButton pRipple type="reset" label="Reset" icon="pi pi-times"
                     class="p-button-rounded p-button-danger p-button-sm mr-2" (click)="resetForm()"></button>

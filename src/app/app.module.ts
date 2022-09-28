@@ -18,6 +18,7 @@ import { EditStudentComponent } from './components/edit-student/edit-student.com
 import { StudentListComponent } from './components/student-list/student-list.component';
 import {ToastrModule}  from 'ngx-toastr';
 import {  NgxPaginationModule} from 'ngx-pagination';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {  NgxPaginationModule} from 'ngx-pagination';
      FormsModule,
      ReactiveFormsModule,
      NgxPaginationModule,
-     ToastrModule.forRoot() 
+     ToastrModule.forRoot(),
+     ImageCropperModule 
 
   ],
   providers: [AuthService],

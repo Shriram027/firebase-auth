@@ -1,15 +1,14 @@
-<p-table #dt [value]="students" [rows]="5" [paginator]="true" responsiveLayout="scroll"
-    [globalFilterFields]="['Name','Standard','Email','Mobile no.']" [(selection)]="selectedStudents" 
+<p-table #dt [value]="students" [rows]="5" [paginator]="true"
+    [globalFilterFields]="['firstName','standard','email','mobileNumber']" [(selection)]="selectedStudents" 
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
     <ng-template pTemplate="caption">
         <div class="p-d-flex p-ai-center p-jc-between" style="text-align: right">
             <div class="text-900 text-3xl font-medium text-center">Student List</div>
-            
             <span class="p-input-icon-left">
                 <i class="pi pi-search"></i>
-                <input pInputText type="text" (input)="dt.filterGlobal($event.target,  'contains')" placeholder="Search..." />
+                <input #searchInput pInputText type="text" (input)="dt.filterGlobal(searchInput.value,  'contains')" placeholder="Search..." />
             </span>
-            <button type="button" pButton pRipple icon="pi pi-file-pdf" (click)="exportPdf()" class="p-button-warning ml-2" pTooltip="PDF" tooltipPosition="bottom"></button>
+            <button type="button" pButton pRipple icon="pi pi-file-pdf" (click)="exportPdf()" class="p-button-warning ml-3 mr-3" pTooltip="PDF" tooltipPosition="bottom"></button>
         </div>
     </ng-template>
 
@@ -42,7 +41,7 @@
             <td class="text-center">{{student.email}}</td>
             <td class="text-center">{{student.mobileNumber}}</td>
             <td class="text-center">
-                <button pButton pRipple icon="pi pi-user-edit" class="p-button-rounded p-button-success"
+                <button pButton pRipple icon="pi pi-user-edit" class="p-button-rounded p-button-success mr-2"
                     routerLink="/edit-student/{{ student.$key }}" pTooltip="Edit" tooltipPosition="bottom"></button>
                 <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
                     (click)="DeleteStudent(student)" pTooltip="Delete" tooltipPosition="bottom"></button>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, AbstractControl, Validators } from '@angular/forms';
 import Validation from 'src/app/validation';
 import { AuthService } from '../../services/auth.service';
+import { ImageCroppedEvent } from 'ngx-image-cropper';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -12,6 +13,11 @@ export class SignUpComponent implements OnInit {
   data: any;
   loginForm: FormGroup
   submitted: boolean = false;
+  imgChangeEvt: any = '';
+  
+
+
+  
 
   constructor(public auth: AuthService, public fb: FormBuilder) {}
 
@@ -32,6 +38,11 @@ export class SignUpComponent implements OnInit {
   get f(): { [key: string]: AbstractControl } {
     return this.loginForm.controls;
   }
+
+  onFileChange(event: any): void {
+    this.imgChangeEvt = event;
+}
+
 
   onSubmit() {
     this.submitted = true;

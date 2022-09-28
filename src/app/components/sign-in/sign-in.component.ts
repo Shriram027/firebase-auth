@@ -17,10 +17,10 @@ export class SignInComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  GoogleAuth(){
+  googleAuth(){
     let data = this.auth.GoogleAuth();
     if(data){
-      this.router.navigate(['dashboard']);
+      this.router.navigate(['/dashboard']);
     }
     else{
       alert("Unable to login");

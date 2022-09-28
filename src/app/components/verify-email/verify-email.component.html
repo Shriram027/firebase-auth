@@ -1,49 +1,49 @@
-<div class="ui-fluid ">
-  <div class="card-container">
-    <div class="surface-card p-8">
+<div class="card-container">
+  <div class="surface-card p-8">
 
 
-      <div class="grid p-fluid flex justify-content-center flex-wrap">
-        <div class="col-12">
-          <div class="flex align-items-center justify-content-center">
-            <h3 class="text-900 text-3xl font-medium">Thankyou for registering</h3>
-          </div>
+    <div class="grid p-fluid flex justify-content-center flex-wrap">
+      <div class="col-12">
+        <div class="flex align-items-center justify-content-center">
+          <h3 class="text-900 text-3xl font-medium">Thankyou for registering</h3>
         </div>
-      </div>
-
-
-      <div class="formGroup" *ngIf="auth.data as user">
-        <div class="grid p-fluid flex justify-content-center flex-wrap">
-          <div class="col-12">
-            <div class="flex align-items-center justify-content-center">
-              <p class="text-center">We have sent a confirmation email to <strong>{{user.email}}</strong>.</p>
-            </div>
-          </div>
-          <div class="col-12">
-            <div class="flex align-items-center justify-content-center">
-              <p class="text-center">Please check your email and click on the link to verfiy your email address.</p>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="grid p-fluid flex justify-content-center flex-wrap">
-          <div class="mt-4">
-            <button pButton pRipple type="button" label="Resend Verification Email" icon="pi pi-refresh"
-              class="p-button-rounded p-button-primary p-button-sm" (click)="auth.sendVerificationMail()"></button>
-          </div>
-        </div>
-
-
-
-        <div class="grid p-fluid flex justify-content-center flex-wrap">
-          <div class="mt-2">
-            <span class="text-900">Go back to? <span class="redirect text-blue-500" routerLink="/sign-in">
-                SignIn</span></span>
-          </div>
-        </div>
-
-
       </div>
     </div>
+
+
+    <div class="formGroup" *ngIf="auth.data as user">
+      <div class="grid p-fluid flex justify-content-center flex-wrap mt-6">
+        <div class="col-12">
+          <div class="flex align-items-center justify-content-center">
+            <p class="text-600 text-center">We have sent a confirmation email to <strong class="text-blue-500">{{user.email}}</strong>.</p>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="flex align-items-center justify-content-center">
+            <p class="text-600 text-center">Please check your email and click on the link to verfiy your email address.</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="grid p-fluid flex justify-content-center flex-wrap mt-4">
+        <div class="mt-4">
+          <button pButton pRipple type="button" label="Resend Verification Email" icon="pi pi-refresh"
+            class="p-button-rounded p-button-primary p-button-sm" (click)="auth.sendVerificationMail()"></button>
+        </div>
+      </div>
+
+
+
+      <div class="grid p-fluid flex justify-content-center flex-wrap mt-2">
+        <div class="mt-2">
+          <span class="text-900">Go back to? <span class="redirect text-blue-500" routerLink="/sign-in">
+              SignIn</span></span>
+        </div>
+      </div>
+
+
+    </div>
   </div>
+  </div>
+  
