@@ -53,6 +53,7 @@
                     <button pButton pRipple type="submit" label="Sign in" icon="pi pi-sign-in" class="p-button-rounded p-button-success p-button-sm ml-2"></button>
                 </div>
             </div>
+            </form>
 
             <div class="grid p-fluid flex justify-content-center flex-wrap">
                 <div class="mt-4">
@@ -62,12 +63,12 @@
 
             <div class="grid p-fluid flex justify-content-center flex-wrap">
                 <div class="mt-3">
-                    <span class="text-900">Don't have an account ? <span class="redirect text-blue-500"
+                    <span *ngIf="!auth.data" class="text-900">Don't have an account ? <span  class="redirect text-blue-500"
                         routerLink="/register"> Sign
                         Up</span></span>
                 </div>
             </div>
 
-        </form>
+    
     </div>
 </div>

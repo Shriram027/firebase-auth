@@ -1,15 +1,21 @@
+<div class="surface-card">
 <p-table #dt [value]="students" [rows]="5" [paginator]="true"
     [globalFilterFields]="['firstName','standard','email','mobileNumber']" [(selection)]="selectedStudents" 
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
     <ng-template pTemplate="caption">
         <div class="p-d-flex p-ai-center p-jc-between" style="text-align: right">
             <div class="text-900 text-3xl font-medium text-center">Student List</div>
+            <div class="col-12">
             <span class="p-input-icon-left">
                 <i class="pi pi-search"></i>
                 <input #searchInput pInputText type="text" (input)="dt.filterGlobal(searchInput.value,  'contains')" placeholder="Search..." />
             </span>
-            <button type="button" pButton pRipple icon="pi pi-file-pdf" (click)="exportPdf()" class="p-button-warning ml-3 mr-3" pTooltip="PDF" tooltipPosition="bottom"></button>
+            </div>
         </div>
+        <div class="p-d-flex p-ai-center p-jc-between" style="text-align: left;">
+        <button type="button" pButton pRipple icon="pi pi-file-pdf" (click)="exportPdf()" class="p-button-warning ml-3" pTooltip="PDF" tooltipPosition="bottom"></button>
+            <button type="button" pButton pRipple icon="pi pi-user-plus" routerLink="/register-student" class="p-button-primary ml-3 mr-3" pTooltip="Add student" tooltipPosition="bottom"></button>
+            </div>
     </ng-template>
 
 
@@ -54,3 +60,4 @@
         </div>
     </ng-template>
 </p-table>
+</div>

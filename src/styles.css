@@ -5,9 +5,11 @@
 }
 
 .p-datatable .p-sortable-column:not(.p-highlight):hover {
-    color: #1b2e3f !important;
+    /* color: #1b2e3f !important; */
+    color: aliceblue;
 }
 
 .p-datatable .p-sortable-column .p-sortable-column-icon:hover {
-    color: #1b2e3f !important;
+    /* color: #1b2e3f !important; */
+    color: aliceblue;
 }

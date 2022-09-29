@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, AbstractControl, Validators } from '@angular/forms';
-import Validation from 'src/app/validation';
-// import { ConfirmedValidator } from '../../validation';
+import { Router } from '@angular/router';
+import {ConfirmPasswordValidator} from 'src/app/validation';
 import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-sign-up',
@@ -14,25 +14,28 @@ export class SignUpComponent implements OnInit {
   signUpForm: FormGroup;
   submitted: boolean = false;
   imgChangeEvt: any = '';
+  showPassword: boolean = false;
+  cnfPassword:boolean = false;
   
 
 
   
 
-  constructor(public auth: AuthService, public fb: FormBuilder) {}
+  constructor(public auth: AuthService, public fb: FormBuilder, public router:Router) {}
 
   ngOnInit(): void {
     this.signUpForm = this.fb.group({
-      userName: ['',[Validators.required, Validators.pattern("[a-zA-Z ]*"),Validators.minLength(3)]],
+      userName: ['',[Validators.required, Validators.pattern("[a-zA-Z ]*")]],
       email: ['', [Validators.required, Validators.email]],
       mobile: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
       password: ['', [Validators.required,Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/)]],
+      photoURL: ['', Validators.required],
       confirmpwd: ['', Validators.required],
-      photoURL: ['', Validators.required]
     },
+      
     {
-      validators: [Validation.match('password', 'confirmpwd')]
-      // validator: ConfirmedValidator('password', 'confirm_password')
+      // validators: [Validation.match('password', 'confirmpwd')]
+      validator: ConfirmPasswordValidator("password", "confirmpwd")
     })
   }
 
@@ -42,6 +45,14 @@ export class SignUpComponent implements OnInit {
 
   onFileChange(event: any): void {
     this.imgChangeEvt = event;
+}
+
+showHidePassword() {
+  this.showPassword = !this.showPassword;
+}
+
+showConfirmPassword(){
+  this.cnfPassword = !this.cnfPassword;
 }
 
 
@@ -54,6 +65,8 @@ export class SignUpComponent implements OnInit {
     console.log(this.data.email,this.data.password);
     this.auth.signUp(this.data.email, this.data.password);
   }
+
+  
 
   reset() {
     this.submitted = false;

@@ -1,5 +1,5 @@
 <div>
-    <p-menubar [model]="items">
+    <p-menubar [model]="items" [popup]="true">
         <ng-template pTemplate="end">
             <p-image *ngIf="auth.isLoggedIn && auth.data as user; else elseBlock;" 
                 src="{{(user.photoURL) ? user.photoURL : '../../../assets/images/dummy2.png'}}" height="40px"

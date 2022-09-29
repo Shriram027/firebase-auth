@@ -84,8 +84,10 @@ get isLoggedIn():boolean{
 
 GoogleAuth(){
   return this.authLogin(new auth.GoogleAuthProvider()).then((res: any)=>{
-    this.router.navigate(['dashboard']);
-  });
+    this.router.navigate(['/dashboard']);
+  }).catch(()=>{
+    alert("Unable to signup");
+  })
 }
 
 

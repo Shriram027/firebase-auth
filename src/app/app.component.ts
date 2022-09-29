@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { MenuItem } from 'primeng/api';
+import { User } from './Models/user';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +25,8 @@ export class AppComponent implements OnInit {
           {
             label: 'Add-Student',
             icon: 'pi pi-user-plus',
-            routerLink : 'register-student'
+            routerLink : 'register-student',
+
           },
           {
             label: 'Student-List',
@@ -40,12 +42,20 @@ export class AppComponent implements OnInit {
           {
             label: 'SignUp',
             icon: 'pi pi-pencil',
-            routerLink: 'register'
+            routerLink: 'register',
+            disabled: !!this.auth.isLoggedIn
           },
           {
             label: 'SignIn',
             icon: 'pi pi-sign-in',
-            routerLink: 'sign-in'
+            routerLink: 'sign-in',
+            disabled: !!this.auth.isLoggedIn
+          },
+          
+          {
+            label: 'Profile',
+            icon: 'pi pi-user',
+            routerLink: 'dashboard'
           },
           {
             label: 'SignOut',

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { FormBuilder, FormControl, FormGroup, AbstractControl, Validators } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-sign-in',
@@ -14,7 +15,7 @@ data:any;
   submitted: boolean = false;
   
 
-  constructor(public auth: AuthService, public router:Router,public fb:FormBuilder) { }
+  constructor(public auth: AuthService, public router:Router,public fb:FormBuilder, private location:Location) { }
 
   ngOnInit(): void {
     this.signInForm = this.fb.group({
@@ -28,13 +29,9 @@ data:any;
   }
 
   googleAuth(){
-    let data = this.auth.GoogleAuth();
-    if(data){
-      this.router.navigate(['/dashboard']);
-    }
-    else{
-      alert("Unable to login");
-    }
+     this.auth.GoogleAuth();
+     
+    
   }
   onSubmit(){
     this.submitted = true;

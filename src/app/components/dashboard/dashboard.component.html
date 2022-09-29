@@ -11,27 +11,36 @@
         </div>
 
 
-        <div class="grid p-fluid flex justify-content-center flex-wrap">
+        <div class="grid p-fluid flex justify-content-center flex-wrap mt-2">
             <div class="col-12">
-                <div class="flex align-items-center justify-content-center">
+                <div class="flex align-items-center justify-content-center mt-4">
+
                     <p-card *ngIf="auth.data as user" header="Hello {{(user.displayName) ? user.displayName : 'User'}}"
-                        [style]="{width: '360px'}" styleClass="p-card-shadow" class="lg-12 md-12 sm-12">
-                        <ng-template pTemplate="header">
-                            <img class=" mr-5 img-thumbnail rounded-circle"
-                                src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
-                                alt="{{user.displayName}}" height="200px" width="200px">
-                        </ng-template>
+                    [style]="{width: '360px'}"
+                         styleClass="p-card-shadow" class="lg-12 md-12 sm-12">
+
+                            <div class="flex align-items-center justify-content-center">
+                            <img class="img-thumbnail" style="border-radius: 50%; height: 100px; width: 100px;"
+                                src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}">
+                                </div>
+
                         <p-chip label="{{user.displayName | uppercase}}" icon="pi pi-user"
-                            styleClass="mr-2 custom-chip mb-3"></p-chip>
-                        <p-chip label="{{user.uid}}" icon="pi pi-id-card" styleClass="mr-2 custom-chip mb-3"></p-chip>
-                        <p-chip label="{{user.email}}" icon="pi pi-envelope" styleClass="mr-2 custom-chip mb-3">
+                            styleClass="mr-2 custom-chip mt-4"></p-chip>
+
+                        <p-chip label="{{user.uid}}" icon="pi pi-id-card" styleClass="mr-2 custom-chip mt-3"></p-chip>
+
+                        <p-chip label="{{user.email}}" icon="pi pi-envelope" styleClass="mr-2 custom-chip mt-3">
                         </p-chip>
+
                         <p-chip label="{{user.emailVerified}}" icon="pi pi-check-circle"
-                            styleClass="mr-2 custom-chip mb-3"></p-chip>
+                            styleClass="mr-2 custom-chip mt-3"></p-chip>
+
                         <ng-template pTemplate="footer">
+                            <div class="flex align-items-center justify-content-center mt-3">
                             <button pButton pRipple type="reset" label="SignOut" icon="pi pi-sign-out"
-                                class="p-button-rounded p-button-danger p-button-sm mr-2 mb-3"
+                                class="p-button-rounded p-button-danger p-button-sm mr-2"
                                 (click)="auth.signOut()"></button>
+                                </div>
                         </ng-template>
                     </p-card>
                 </div>

@@ -21,7 +21,7 @@
                     </div>
                     <div *ngIf="f['userName'].touched && f['userName'].invalid || submitted" style="color: red;">
                         <div *ngIf="f['userName'].errors && f['userName'].errors['required']"><sup>*</sup>Name is required.</div>
-                        <div *ngIf="f['userName'].errors && f['userName'].errors['minlength']"><sup>*</sup>Name should be 3 character.</div>
+                        <!-- <div *ngIf="f['userName'].errors && f['userName'].errors['minlength']"><sup>*</sup>Name should be 3 character.</div> -->
                         <div *ngIf="f['userName'].errors && f['userName'].errors['pattern']"><sup>*</sup>Only characters are allowed.</div>
                     </div>
                 </div>
@@ -66,8 +66,11 @@
             <div class="grid p-fluid flex justify-content-center flex-wrap mt-4">
                 <div class="col-12 md:col-4">
                     <div class="flex align-items-center justify-content-center p-inputgroup">
-                        <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
-                        <input type="password" pInputText placeholder="Password" class="form-control w-full" formControlName="password">
+                        <span class="p-inputgroup-addon"><i class="pi" [ngClass]="{
+                            'pi-eye-slash': !showPassword,
+                            'pi-eye': showPassword
+                          }" (click)="showHidePassword()"></i></span>
+                        <input type="password" [type]=" showPassword ? 'text' : 'password' " pInputText placeholder="Password" class="form-control w-full" formControlName="password" >
                     </div>
                     <div *ngIf="f['password'].touched && f['password'].invalid || submitted" style="color: red;">
                         <div *ngIf="f['password'].errors && f['password'].errors['required']"><sup>*</sup>Password is required.</div>
@@ -77,12 +80,15 @@
 
                 <div class="col-12 md:col-4">
                     <div class="flex align-items-center justify-content-center p-inputgroup">
-                        <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
-                        <input type="password" pInputText placeholder="Confirm Password" class="form-control w-full" formControlName="confirmpwd">
+                        <span class="p-inputgroup-addon"><i class="pi" [ngClass]="{
+                            'pi-eye-slash': !cnfPassword,
+                            'pi-eye': cnfPassword
+                          }" (click)="showConfirmPassword()"></i></span>
+                        <input type="password" [type]=" cnfPassword ? 'text' : 'password' " pInputText placeholder="Confirm Password" class="form-control w-full" formControlName="confirmpwd">
                     </div>
                     <div *ngIf="f['confirmpwd'].touched && f['confirmpwd'].invalid || submitted" style="color: red;">
                         <div *ngIf="f['confirmpwd'].errors && f['confirmpwd'].errors['required']"><sup>*</sup> Password is required.</div>
-                        <div *ngIf="f['confirmpwd'].errors && f['confirmpwd'].errors['confirmedValidator']"><sup>*</sup> Password and Confirm Password must be match.</div>
+                        <div *ngIf="f['confirmpwd'].errors && f['confirmpwd'].errors['confirmPasswordValidator']"><sup>*</sup> Password and Confirm Password must be match.</div>
                     </div>
                 </div>
             </div>
@@ -108,7 +114,7 @@
 
         <div class="grid p-fluid flex justify-content-center flex-wrap">
             <div class="mt-3">
-                <span class="text-900">Already have an account ? <span class="redirect text-blue-500"
+                <span *ngIf="!auth.data" class="text-900">Already have an account ? <span class="redirect text-blue-500"
                             routerLink="/sign-in">Login</span></span>
             </div>
         </div>
