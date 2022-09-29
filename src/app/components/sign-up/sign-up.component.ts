@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, AbstractControl, Validators } from '@angular/forms';
 import Validation from 'src/app/validation';
+// import { ConfirmedValidator } from '../../validation';
 import { AuthService } from '../../services/auth.service';
-import { ImageCroppedEvent } from 'ngx-image-cropper';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -11,7 +11,7 @@ import { ImageCroppedEvent } from 'ngx-image-cropper';
 export class SignUpComponent implements OnInit {
   title: string = "Signup";
   data: any;
-  loginForm: FormGroup
+  signUpForm: FormGroup;
   submitted: boolean = false;
   imgChangeEvt: any = '';
   
@@ -22,21 +22,22 @@ export class SignUpComponent implements OnInit {
   constructor(public auth: AuthService, public fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.loginForm = this.fb.group({
-      userName: ['',[Validators.required, Validators.pattern("[a-zA-Z ]*")]],
+    this.signUpForm = this.fb.group({
+      userName: ['',[Validators.required, Validators.pattern("[a-zA-Z ]*"),Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
-      mobile: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$"), Validators.maxLength(10)]],
-      password: ['', [Validators.required,Validators.minLength(6),Validators.maxLength(10)]],
+      mobile: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+      password: ['', [Validators.required,Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/)]],
       confirmpwd: ['', Validators.required],
       photoURL: ['', Validators.required]
     },
     {
       validators: [Validation.match('password', 'confirmpwd')]
+      // validator: ConfirmedValidator('password', 'confirm_password')
     })
   }
 
   get f(): { [key: string]: AbstractControl } {
-    return this.loginForm.controls;
+    return this.signUpForm.controls;
   }
 
   onFileChange(event: any): void {
@@ -46,17 +47,17 @@ export class SignUpComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    if (this.loginForm.invalid) {
+    if (this.signUpForm.invalid) {
       return;
     }
-    this.data = this.loginForm.value;
+    this.data = this.signUpForm.value;
     console.log(this.data.email,this.data.password);
     this.auth.signUp(this.data.email, this.data.password);
   }
 
   reset() {
     this.submitted = false;
-    this.loginForm.reset();
+    this.signUpForm.reset();
   }
 
 }
