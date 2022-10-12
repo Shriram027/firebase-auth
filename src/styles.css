@@ -13,3 +13,15 @@
     /* color: #1b2e3f !important; */
     color: aliceblue;
 }
+
+::ng-deep .p-image-preview-container img {
+    cursor: pointer;
+    border-radius: 50px !important;
+}
+
+
+
+
+
+
+

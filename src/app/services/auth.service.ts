@@ -17,9 +17,10 @@ export class AuthService {
     this.afAuth.authState.subscribe((user) => {
       if (user) {
         this.data = user;
-        console.log(this.data);
+
+        
         localStorage.setItem('user', JSON.stringify(this.data));
-        JSON.parse(localStorage.getItem('user')!);
+        // JSON.parse(localStorage.getItem('user')!);
       }
       else {
         localStorage.setItem('user', 'null');
@@ -119,7 +120,10 @@ setUserData(user:any){
 
 signOut(){
   return this.afAuth.signOut().then(()=>{
-    localStorage.removeItem('user');
+    setTimeout(function(){
+      localStorage.clear();
+        window.location.reload();
+      },100);
     this.router.navigate(['/sign-in']);
   })
 }
